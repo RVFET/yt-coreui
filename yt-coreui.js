@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         YTUI Core Library
+// @name         YTCoreUI
 // @namespace    https://rvfet.com/
 // @author       https://github.com/rvfet
 // @version      2.0.0
@@ -44,7 +44,7 @@
   }
 
   // 3. Component Factory
-  const YTUI = {
+  const YTCoreUI = {
     h,
 
     icon(name, { size = 18, fill = false } = {}) {
@@ -91,7 +91,7 @@
         'aria-hidden': 'true',
         class: 'ytSpecButtonShapeNextIcon',
         style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', lineHeight: '0' }
-      }, typeof icon === 'string' ? YTUI.icon(icon, { size: size === 's' ? 16 : 18 }) : icon) : null;
+      }, typeof icon === 'string' ? YTCoreUI.icon(icon, { size: size === 's' ? 16 : 18 }) : icon) : null;
 
       const textSpan = text ? h('div', {
         class: 'ytSpecButtonShapeNextButtonTextContent',
@@ -123,7 +123,7 @@
     },
 
     chip({ label = '', selected = false, icon = null, onClick = null } = {}) {
-      const chipBtn = YTUI.button({
+      const chipBtn = YTCoreUI.button({
         text: label,
         variant: selected ? 'primary' : 'secondary',
         size: 's',
@@ -153,7 +153,7 @@
       chips.forEach((item, idx) => {
         const id = item.id !== undefined ? item.id : idx;
         const label = typeof item === 'string' ? item : item.label;
-        const el = YTUI.chip({
+        const el = YTCoreUI.chip({
           label,
           icon: item.icon,
           selected: selectedId === id || Boolean(item.selected),
@@ -204,7 +204,7 @@
       const clear = h('div', {
         style: { display: value ? 'inline-flex' : 'none', cursor: 'pointer', color: 'var(--yt-spec-text-secondary, #aaa)' },
         onClick: () => { input.value = ''; clear.style.display = 'none'; input.focus(); onInput && onInput(''); }
-      }, YTUI.icon('close', { size: 16 }));
+      }, YTCoreUI.icon('close', { size: 16 }));
 
       const wrapper = h('div', {
         class: 'ytSearchboxComponentInputBox ytSearchboxComponentInputBoxDark ytSearchboxComponentInputBoxShape',
@@ -220,7 +220,7 @@
           gap: '6px'
         }
       },
-        YTUI.icon('search', { size: 18 }),
+        YTCoreUI.icon('search', { size: 18 }),
         input,
         clear
       );
@@ -246,7 +246,7 @@
       let selectedState = new Set(normalizeValues(value));
       let isOpen = false;
 
-      const triggerBtn = YTUI.button({
+      const triggerBtn = YTCoreUI.button({
         text: placeholder,
         variant: 'secondary',
         size,
@@ -310,11 +310,11 @@
         const stringVal = String(rawVal);
         const optLabel = opt.label !== undefined ? opt.label : opt;
 
-        const checkIcon = YTUI.icon('check', { size: 18 });
+        const checkIcon = YTCoreUI.icon('check', { size: 18 });
         checkIcon.style.color = 'var(--yt-spec-call-to-action, #3ea6ff)';
         checkIcon.style.visibility = 'hidden';
 
-        const leadingIcon = opt.icon ? YTUI.icon(opt.icon, { size: 20 }) : null;
+        const leadingIcon = opt.icon ? YTCoreUI.icon(opt.icon, { size: 20 }) : null;
         if (leadingIcon) leadingIcon.style.color = 'var(--yt-spec-text-secondary, #aaa)';
 
         const textNode = h('span', {
@@ -403,5 +403,5 @@
   };
 
   // Export globally for consumers
-  window.YTUI = YTUI;
+  window.YTCoreUI = YTCoreUI;
 })();

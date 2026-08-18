@@ -1,4 +1,4 @@
-# YTUI Core Library
+# YTCoreUI Core Library
 
 A zero-CSS micro-component library for YouTube userscript developers. It builds DOM elements using YouTube's internal design system tokens (`--yt-spec-*`) and layout classes (`ytSpecButtonShapeNext*`, Polymer/custom element wrappers).
 
@@ -8,7 +8,7 @@ A zero-CSS micro-component library for YouTube userscript developers. It builds 
 
 1. **Theme Fragility:** Hardcoding CSS or shipping custom stylesheets breaks across YouTube's dark/light modes, ambient mode, and theme updates.
 2. **DOM Verbosity:** Reconstructing YouTube's native button and chip structures manually in vanilla JavaScript requires verbose, repetitive element nesting and class juggling.
-3. **No Bundle Overhead:** Importing React, Preact, or custom CSS bundles into userscripts adds unnecessary bloat. YTUI relies on the styles YouTube has *already evaluated and loaded* in the client's memory.
+3. **No Bundle Overhead:** Importing React, Preact, or custom CSS bundles into userscripts adds unnecessary bloat. YTCoreUI relies on the styles YouTube has *already evaluated and loaded* in the client's memory.
 
 ---
 
@@ -22,12 +22,12 @@ A zero-CSS micro-component library for YouTube userscript developers. It builds 
 
 ### Components Provided
 
-* `YTUI.h(tag, attrs, ...children)`: Minimal hyperscript utility handling inline style objects, event listeners, and nested children.
-* `YTUI.icon(name, options)`: Material Symbols loader and wrapper.
-* `YTUI.button(options)`: Native YouTube Spec Next button (primary, secondary, outline, text) with touch-feedback shapes and dynamic labels.
-* `YTUI.chip(options)` / `YTUI.chipBar(options)`: Filter chips and single/multi-select chip groups.
-* `YTUI.searchbox(options)`: Integrated YouTube-styled search bar with clear actions and input debouncing hooks.
-* `YTUI.select(options)`: Custom single/multi-select dropdown styled after YouTube's native context menus (`ytd-menu-popup-renderer`).
+* `YTCoreUI.h(tag, attrs, ...children)`: Minimal hyperscript utility handling inline style objects, event listeners, and nested children.
+* `YTCoreUI.icon(name, options)`: Material Symbols loader and wrapper.
+* `YTCoreUI.button(options)`: Native YouTube Spec Next button (primary, secondary, outline, text) with touch-feedback shapes and dynamic labels.
+* `YTCoreUI.chip(options)` / `YTCoreUI.chipBar(options)`: Filter chips and single/multi-select chip groups.
+* `YTCoreUI.searchbox(options)`: Integrated YouTube-styled search bar with clear actions and input debouncing hooks.
+* `YTCoreUI.select(options)`: Custom single/multi-select dropdown styled after YouTube's native context menus (`ytd-menu-popup-renderer`).
 
 ---
 
@@ -39,7 +39,7 @@ Add the library to your userscript metadata block via `@require`:
 // ==UserScript==
 // @name         My YouTube Extension
 // @match        https://www.youtube.com/*
-// @require      https://update.greasyfork.org/scripts/i'll-edit-later/yt-coreui.js
+// @require      https://update.greasyfork.org/scripts/591892/1906121/YTCoreUI%20Core%20Library.js
 // @grant        none
 // ==/UserScript==
 
@@ -47,7 +47,7 @@ Add the library to your userscript metadata block via `@require`:
   'use strict';
 
   // 1. Create a native-styled button
-  const myButton = YTUI.button({
+  const myButton = YTCoreUI.button({
     text: 'Download',
     variant: 'secondary',
     size: 'm',
@@ -60,7 +60,7 @@ Add the library to your userscript metadata block via `@require`:
   });
 
   // 2. Create a dropdown selector
-  const mySelect = YTUI.select({
+  const mySelect = YTCoreUI.select({
     placeholder: 'Filter Quality',
     options: [
       { label: '1080p', value: '1080' },
