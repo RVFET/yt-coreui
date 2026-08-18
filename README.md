@@ -39,7 +39,7 @@ Add the library to your userscript metadata block via `@require`:
 // ==UserScript==
 // @name         My YouTube Extension
 // @match        https://www.youtube.com/*
-// @require      https://update.greasyfork.org/scripts/591892/1906121/YTCoreUI%20Core%20Library.js
+// @require      https://update.greasyfork.org/scripts/591892/1906121/YTCoreUI.js
 // @grant        none
 // ==/UserScript==
 
