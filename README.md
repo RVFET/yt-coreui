@@ -1,4 +1,4 @@
-# YTCoreUI Core Library
+# YTCoreUI Library
 
 A zero-CSS micro-component library for YouTube userscript developers. It builds DOM elements using YouTube's internal design system tokens (`--yt-spec-*`) and layout classes (`ytSpecButtonShapeNext*`, Polymer/custom element wrappers).
 
@@ -39,7 +39,7 @@ Add the library to your userscript metadata block via `@require`:
 // ==UserScript==
 // @name         My YouTube Extension
 // @match        https://www.youtube.com/*
-// @require      https://update.greasyfork.org/scripts/591892/1906121/YTCoreUI.js
+// @require      https://update.greasyfork.org/scripts/591892/1906143/YTCoreUI.js
 // @grant        none
 // ==/UserScript==
 
